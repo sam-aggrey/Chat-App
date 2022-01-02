@@ -19,6 +19,6 @@ Chatty is a chat app for mobile devices which is developed using React Native. T
 ## Install dependencies
 * while on your terminal navigate to the root folder of the project
 * run yarn install or npm install
-33 Run the app
+## Run the app
 * To launch the app run expo start or npm start
 * Then Expo starts the app and a browser window will open, there you find options to execute the app on a device or emulator
