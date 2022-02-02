@@ -193,8 +193,8 @@ const styles = StyleSheet.create({
 	},
 	inputText: {
 		fontSize: 16,
-		fontWeight: '300',
-		opacity: 0.5,
+		fontWeight: '600',
+
 		color: '#757083',
 	},
 	colorSelector: {
