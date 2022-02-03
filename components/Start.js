@@ -30,8 +30,7 @@ export default class Start extends React.Component {
 		green: '#c4df9b',
 		blue: '#7accc8',
 	};
-
-	render() {
+render() {
 		return (
 			<View style={styles.container}>
 				<ImageBackground

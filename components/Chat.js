@@ -1,32 +1,77 @@
-	import React from 'react';
-	import { View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { GiftedChat, Bubble } from "react-native-gifted-chat";
 
-	export default class Chat extends React.Component {
-		render() {
-			//entered name state from Start screen gets displayed in status bar at the top of the app
-			let name = this.props.route.params.name;
-			this.props.navigation.setOptions({ title: name});
+import {
+  View,
+  Text,
+  Button,
+  Platform,
+  KeyboardAvoidingView,
+} from "react-native";
 
-			const { bgColor } = this.props.route.params;
+export default class Chat extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      messages: [],
+    };
+  }
+  componentDidMount() {
+    this.setState({
+      messages: [
+        {
+          _id: 1,
+          text: "Hello developer",
+          createdAt: new Date(),
+          user: {
+            _id: 2,
+            name: "React Native",
+            avatar: "https://placeimg.com/140/140/any",
+          },
+        },
+      ],
+    });
+  }
 
-			return (
-				<View style={{
-					flex: 1,
-					justifyContent: 'center',
-					alignItems: 'center',
-					backgroundColor: bgColor,
+  onSend(messages = []) {
+    this.setState((previousState) => ({
+      messages: GiftedChat.append(previousState.messages, messages),
+    }));
+  }
+  renderBubble(props) {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle={{
+          right: {
+            backgroundColor: "purple",
+          },
+        }}
+      />
+    );
+  }
 
+  render() {
+		const { bgColor } = this.props.route.params;
+    let name = this.props.route.params.name;
+    this.props.navigation.setOptions({ title: name });
+    return (
+      <View style={{
+				 	flex: 1,
+					backgroundColor: bgColor
 				}}>
-				<Text style={styles.exampleMessage}>This will display your chat!</Text>
-				</View>
-			)
-		}
-	}
-
-	const styles = StyleSheet.create({
-		exampleMessage: {
-
-			fontWeight:'bold',
-			fontSize:26
-		},
-	})
+        <GiftedChat
+          renderBubble={this.renderBubble.bind(this)}
+          messages={this.state.messages}
+          onSend={(messages) => this.onSend(messages)}
+          user={{
+            _id: 1,
+          }}
+        />
+        {Platform.OS === "android" ? (
+          <KeyboardAvoidingView behavior="height" />
+        ) : null}
+      </View>
+    );
+  }
+}
