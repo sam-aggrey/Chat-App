@@ -3,7 +3,7 @@ import { GiftedChat, Bubble, InputToolbar } from "react-native-gifted-chat";
 import {  View, Text, Button, Platform, KeyboardAvoidingView} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
-import * as firebase from 'firebase';
+import  firebase from 'firebase';
 import 'firebase/firestore';
 import backgroundImg from '../assets/images/bg.png';
 
@@ -176,7 +176,7 @@ const firebaseConfig = {
                 user={{
                   _id: 1,
                 }}
-              /> 
+              />
 
         { Platform.OS === 'android' ? <KeyboardAvoidingView behavior='height' /> : null }
       </View>
