@@ -17,9 +17,9 @@ export default class Start extends React.Component {
 	};
 
 	/*
-   Updates the state with the background color choice of a user
-   from the colors list
-   */
+	Updates the state with the background color choice of a user
+	from the colors list
+	*/
 	changeBgColor = newColor => {
 		this.setState({ bgColor: newColor });
 	};
@@ -30,99 +30,99 @@ export default class Start extends React.Component {
 		green: '#c4df9b',
 		blue: '#7accc8',
 	};
-render() {
+	render() {
 		return (
 			<View style={styles.container}>
-				<ImageBackground
-					source={backgroundImg}
-					resizeMode="cover"
-					style={styles.bgImage}
-				>
-					<View style={styles.titleContainer}>
-						<Text style={styles.titleText}>Chat App</Text>
-					</View>
+			<ImageBackground
+			source={backgroundImg}
+			resizeMode="cover"
+			style={styles.bgImage}
+			>
+			<View style={styles.titleContainer}>
+			<Text style={styles.titleText}>Chat App</Text>
+			</View>
 
-					<View style={styles.box}>
-						<View style={styles.inputField}>
-							<Icon style={styles.icon} name="user" size={30} color="#888" />
-							<TextInput
-								accessible={true}
-								accessibilityLabel="Your Name"
-								accessibilityHint="Type the name you want to use in the chat session"
-								style={styles.inputText}
-								onChangeText={text => this.setState({ name: text })}
-								value={this.state.name}
-								placeholder="Your Name ..."
-							/>
-						</View>
+			<View style={styles.box}>
+			<View style={styles.inputField}>
+			<Icon style={styles.icon} name="user" size={30} color="#888" />
+			<TextInput
+			accessible={true}
+			accessibilityLabel="Your Name"
+			accessibilityHint="Type the name you want to use in the chat session"
+			style={styles.inputText}
+			onChangeText={text => this.setState({ name: text })}
+			value={this.state.name}
+			placeholder="Your Name ..."
+			/>
+			</View>
 
-						<View style={styles.colorSelector}>
-							<Text style={styles.colorsTitle}>Choose a Background Color</Text>
+			<View style={styles.colorSelector}>
+			<Text style={styles.colorsTitle}>Choose a Background Color</Text>
 
-							<View style={styles.colorsList}>
-								{/* pink background */}
-								<TouchableOpacity
-									accessible={true}
-									accessibilityLabel="Select pink background"
-									accessibilityHint="Choose pink background for the chat screen"
-									accessibilityRole="button"
-									onPress={() => this.changeBgColor(this.colors.pink)}
-								>
-									<View style={styles.pink}></View>
-								</TouchableOpacity>
+			<View style={styles.colorsList}>
+			{/* pink background */}
+			<TouchableOpacity
+			accessible={true}
+			accessibilityLabel="Select pink background"
+			accessibilityHint="Choose pink background for the chat screen"
+			accessibilityRole="button"
+			onPress={() => this.changeBgColor(this.colors.pink)}
+			>
+			<View style={styles.pink}></View>
+			</TouchableOpacity>
 
-								{/* Purple background */}
-								<TouchableOpacity
-									accessible={true}
-									accessibilityLabel="Select purple background"
-									accessibilityHint="Choose purple background for the chat screen"
-									accessibilityRole="button"
-									onPress={() => this.changeBgColor(this.colors.purple)}
-								>
-									<View style={styles.purple}></View>
-								</TouchableOpacity>
+			{/* Purple background */}
+			<TouchableOpacity
+			accessible={true}
+			accessibilityLabel="Select purple background"
+			accessibilityHint="Choose purple background for the chat screen"
+			accessibilityRole="button"
+			onPress={() => this.changeBgColor(this.colors.purple)}
+			>
+			<View style={styles.purple}></View>
+			</TouchableOpacity>
 
-								{/* GREEN background */}
-								<TouchableOpacity
-									accessible={true}
-									accessibilityLabel="Select green background"
-									accessibilityHint="Choose green background for the chat screen"
-									accessibilityRole="button"
-									onPress={() => this.changeBgColor(this.colors.green)}
-								>
-									<View style={styles.green}></View>
-								</TouchableOpacity>
+			{/* GREEN background */}
+			<TouchableOpacity
+			accessible={true}
+			accessibilityLabel="Select green background"
+			accessibilityHint="Choose green background for the chat screen"
+			accessibilityRole="button"
+			onPress={() => this.changeBgColor(this.colors.green)}
+			>
+			<View style={styles.green}></View>
+			</TouchableOpacity>
 
-								{/* BLUE background */}
-								<TouchableOpacity
-									accessible={true}
-									accessibilityLabel="Select blue background"
-									accessibilityHint="Choose blue background for the chat screen"
-									accessibilityRole="button"
-									onPress={() => this.changeBgColor(this.colors.blue)}
-								>
-									<View style={styles.blue}></View>
-								</TouchableOpacity>
-							</View>
-						</View>
+			{/* BLUE background */}
+			<TouchableOpacity
+			accessible={true}
+			accessibilityLabel="Select blue background"
+			accessibilityHint="Choose blue background for the chat screen"
+			accessibilityRole="button"
+			onPress={() => this.changeBgColor(this.colors.blue)}
+			>
+			<View style={styles.blue}></View>
+			</TouchableOpacity>
+			</View>
+			</View>
 
-						<Pressable
-							style={styles.button}
-							accessible={true}
-							accessibilityLabel="Tab here to Start chatting"
-							accessibilityHint="Enter the chat screen"
-							accessibilityRole="button"
-							onPress={() =>
-								this.props.navigation.navigate('Chat', {
-									name: this.state.name,
-									bgColor: this.state.bgColor,
-								})
-							}
-						>
-							<Text style={styles.buttonText}>Start Chatting</Text>
-						</Pressable>
-					</View>
-				</ImageBackground>
+			<Pressable
+			style={styles.button}
+			accessible={true}
+			accessibilityLabel="Tab here to Start chatting"
+			accessibilityHint="Enter the chat screen"
+			accessibilityRole="button"
+			onPress={() =>
+				this.props.navigation.navigate('Chat', {
+					name: this.state.name,
+					bgColor: this.state.bgColor,
+				})
+			}
+			>
+			<Text style={styles.buttonText}>Start Chatting</Text>
+			</Pressable>
+			</View>
+			</ImageBackground>
 			</View>
 		);
 	}
