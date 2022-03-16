@@ -10,6 +10,7 @@ import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import backgroundImg from '../assets/images/bg.png';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 export default class Start extends React.Component {
 	state = {
 		name: '',
